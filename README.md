@@ -1,4 +1,4 @@
-![alt text](https://ibb.co/Y2V91KQ)
+![alt text](https://github.com/[christemunxyz]/[dwm]/blob/[master]/myrice.png?raw=true)
 
 ## Installation for noobs
 ```bash
