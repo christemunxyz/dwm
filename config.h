@@ -78,8 +78,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,			XK_r,	   spawn,	   SHCMD("redyt")},
-	{ MODKEY,			XK_y,	   spawn,	   SHCMD("yt -r")},
 	{ MODKEY,			XK_w,      spawn,	   {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,                       XK_p,      incnmaster,     {.i = -1 } },
