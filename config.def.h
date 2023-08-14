@@ -18,8 +18,8 @@ static const char col_gray1[]       = "#121314";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#efefef";
-static const char col_bar[]	    = "#df6b74";
+static const char col_cyan[]        = "#a4540d";
+static const char col_bar[]	    = "#2e3440";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -80,7 +80,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_w,	   spawn,          SHCMD("tabbed -c surf -e")},
 	{ MODKEY,			XK_e,	   spawn,	   SHCMD(TERMINAL " -e neomutt")},
-	{ MODKEY,			XK_a,      spawn,          SHCMD(TERMINAL " -e ani-cli")},
 	{ MODKEY,			XK_y,      spawn,          SHCMD("yt -r")},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -148,4 +147,4 @@ static const Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-};
+}
