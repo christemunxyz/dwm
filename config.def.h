@@ -11,14 +11,14 @@ static const unsigned int gappoh    = 10;       /* horiz outer gap between windo
 static const unsigned int gappov    = 30;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Inconsolata:size=17" };
-static const char dmenufont[]       = "Inconsolata:size=17";
+static const int topbar             = 0;        /* 0 means bottom bar */
+static const char *fonts[]          = { "Inconsolata:size=15" };
+static const char dmenufont[]       = "Inconsolata:size=15";
 static const char col_gray1[]       = "#121314";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#a4540d";
+static const char col_cyan[]        = "#005577";
 static const char col_bar[]	    = "#2e3440";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -27,7 +27,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -69,18 +69,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_bar, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-//volume controls
-static const char *upvol[]    = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
-static const char *downvol[]  = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
-static const char *mutevol[]  = { "amixer", "-q", "set", "Master", "toggle", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_w,	   spawn,          SHCMD("tabbed -c surf -e")},
-	{ MODKEY,			XK_e,	   spawn,	   SHCMD(TERMINAL " -e neomutt")},
-	{ MODKEY,			XK_y,      spawn,          SHCMD("yt -r")},
+	{ MODKEY,			XK_e,	   spawn,	   SHCMD(TERMINAL " -e mail")},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -117,9 +112,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,			XK_F8,     spawn,          {.v = upvol } },
-	{ MODKEY,			XK_F7,     spawn,	   {.v = downvol } },
-	{ MODKEY,			XK_F5,	   spawn,	   {.v = mutevol } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
